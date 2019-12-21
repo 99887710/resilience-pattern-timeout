@@ -16,7 +16,10 @@ public class RatingController {
     RatingService ratingService;
 
     @GetMapping("/ratings/{productId}")
-    public ProductRatingDTO getRatin(@PathVariable int productId){
+    public ProductRatingDTO getRating(@PathVariable int productId) throws InterruptedException{
+        int processTime = 30 * 1000;
+        System.out.println("This request will be completed in 30 secs");
+        Thread.sleep(processTime);
         return ratingService.getProductRating(productId);
     }
 
